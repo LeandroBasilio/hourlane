@@ -18,8 +18,10 @@ Stand: 14. Oktober 2026. Geprüft in der lokalen Arbeitsumgebung, mit ausschlie�
 | Fehlende Verbindung | 503 statt Erfolg; Eingaben bleiben bei unbestätigter Browserantwort erhalten |
 | Navigation | Mobiles Menü, Escape, Demo-Tabs per Pfeiltasten/Home/End, FAQ und rechtliche Entwurfsseiten |
 | App-Neustart | Über HTTP gespeicherter lokaler Datensatz bleibt nach tatsächlichem Neustart des Next-Servers vorhanden; Wiederholung ergibt 200 ohne Duplikat |
+| PostgreSQL-Neustart | Fiktiver Datensatz bleibt nach tatsächlichem Neustart des Compose-Datenbankcontainers erhalten |
+| Backup und Wiederherstellung | Schema mit `pg_dump` gesichert, in separate neue Datenbank eingespielt, Testdatensatz und Migrationshistorie unabhängig geprüft; Testkopie anschließend entfernt |
 | Rollen | Runtime kann erfassen und Idempotenz prüfen; Lesen persönlicher Felder und Löschen von Leads wurden für Runtime erfolgreich verweigert |
-| Operator | Export eines Testdatensatzes, Abschluss mit Löschfrist und gezielte Löschung geprüft |
+| Operator | Export eines Testdatensatzes, Abschluss mit Löschfrist und gezielte Löschung geprüft; Purge entfernt fälligen geschlossenen Testlead und erhält offenen Testlead |
 | Lokales Setup | Zufällige geschützte Konfigurationsdateien; vorhandene Dateien werden nicht überschrieben |
 | Secrets | Keine lokalen Verbindungswerte oder HMAC-Secrets im Quellcode/Browserbundle gefunden; Konfiguration und Laufzeitdaten durch Git ausgeschlossen |
 | Abhängigkeiten | `npm audit --omit=dev --audit-level=high`: keine gemeldeten Schwachstellen zum Prüfzeitpunkt |
@@ -28,7 +30,6 @@ Die Darstellung wurde anhand echter Browser-Screenshots geprüft. Die finale Pro
 
 ## Offen oder nicht nachgewiesen
 
-- **Neustart des PostgreSQL-Containers sowie Backup/Wiederherstellung:** Der geplante Docker-Neustart wurde nicht ausgeführt, weil die automatische Freigabeprüfung wegen eines Nutzungslimits nicht abgeschlossen werden konnte. Das war ein technisches Prüfversagen, keine Feststellung unsicherer Ausführung. Der App-Neustart ist separat erfolgreich geprüft; er ersetzt den Datenbank-Neustarttest nicht. Sicherungs-/Wiederherstellungsanweisungen sind dokumentiert, aber noch nicht praktisch ausgeführt.
 - **Produktionsbetrieb:** Keine Domain, Anbieteraccounts, produktive Datenbank oder öffentlichen Endpunkte eingerichtet. Region, Proxy-Vertrauen, TLS, Limits, Backupplan und echte Produktionsspeicherung müssen nach Anbieterfreigabe erneut geprüft werden.
 - **Rechtliche/geschäftliche Freigabe:** Tatsächliche Betreiberangaben, vollständige Rechtstexte, Marken-/Domainprüfung und Anbieter-/Datenschutzverträge fehlen noch. Entwurfsseiten sind sichtbar als solche gekennzeichnet.
 - **Betrieb:** Kein externer Scheduler für regelmäßiges Purge, keine automatische Lead-Benachrichtigung, keine produktive Überwachung. Sichtung und Bearbeitung brauchen eine benannte verantwortliche Person.
