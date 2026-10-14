@@ -1,8 +1,10 @@
 import "server-only";
 import { Pool } from "pg";
 
-const globalForDatabase = globalThis as unknown as { hourlanePools?: Map<string, Pool> };
-const pools = globalForDatabase.hourlanePools ??= new Map<string, Pool>();
+const globalForDatabase = globalThis as unknown as {
+  hourlanePools?: Map<string, Pool>;
+};
+const pools = (globalForDatabase.hourlanePools ??= new Map<string, Pool>());
 
 export function getDatabasePool(databaseUrl: string): Pool {
   let pool = pools.get(databaseUrl);
@@ -16,7 +18,9 @@ export function getDatabasePool(databaseUrl: string): Pool {
       application_name: "hourlane-lead-capture",
     });
     // Never log provider error objects: they can contain connection details or SQL values.
-    pool.on("error", () => console.error("hourlane_database_idle_connection_error"));
+    pool.on("error", () =>
+      console.error("hourlane_database_idle_connection_error"),
+    );
     pools.set(databaseUrl, pool);
   }
   return pool;

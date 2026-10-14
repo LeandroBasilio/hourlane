@@ -1,12 +1,22 @@
 import { defineConfig, devices } from "@playwright/test";
 
-try { process.loadEnvFile(".env.local"); } catch { /* CI uses explicit environment variables. */ }
+try {
+  process.loadEnvFile(".env.local");
+} catch {
+  /* CI uses explicit environment variables. */
+}
 const testDatabaseUrl = process.env.TEST_DATABASE_URL;
-if (!testDatabaseUrl) throw new Error("TEST_DATABASE_URL is required for browser integration tests.");
+if (!testDatabaseUrl)
+  throw new Error(
+    "TEST_DATABASE_URL is required for browser integration tests.",
+  );
 const testUrl = new URL(testDatabaseUrl);
-if (!["localhost", "127.0.0.1", "[::1]"].includes(testUrl.hostname) ||
-    !/^\/hourlane[a-z0-9_]*_test$/i.test(decodeURIComponent(testUrl.pathname)) ||
-    testDatabaseUrl === process.env.DATABASE_URL) throw new Error("Unsafe test database configuration.");
+if (
+  !["localhost", "127.0.0.1", "[::1]"].includes(testUrl.hostname) ||
+  !/^\/hourlane[a-z0-9_]*_test$/i.test(decodeURIComponent(testUrl.pathname)) ||
+  testDatabaseUrl === process.env.DATABASE_URL
+)
+  throw new Error("Unsafe test database configuration.");
 
 export default defineConfig({
   testDir: "./tests/browser",
@@ -18,12 +28,29 @@ export default defineConfig({
     trace: "retain-on-failure",
     screenshot: "only-on-failure",
     launchOptions: process.env.PLAYWRIGHT_EXECUTABLE_PATH
-      ? { executablePath: process.env.PLAYWRIGHT_EXECUTABLE_PATH, args: ["--no-sandbox"] }
+      ? {
+          executablePath: process.env.PLAYWRIGHT_EXECUTABLE_PATH,
+          args: ["--no-sandbox"],
+        }
       : {},
   },
   projects: [
-    { name: "desktop", use: { ...devices["Desktop Chrome"], viewport: { width: 1440, height: 1000 } } },
-    { name: "mobile", use: { ...devices["Desktop Chrome"], viewport: { width: 360, height: 800 }, isMobile: true, hasTouch: true } },
+    {
+      name: "desktop",
+      use: {
+        ...devices["Desktop Chrome"],
+        viewport: { width: 1440, height: 1000 },
+      },
+    },
+    {
+      name: "mobile",
+      use: {
+        ...devices["Desktop Chrome"],
+        viewport: { width: 360, height: 800 },
+        isMobile: true,
+        hasTouch: true,
+      },
+    },
   ],
   webServer: {
     command: "npm run start -- --port 3100",

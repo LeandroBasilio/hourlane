@@ -37,7 +37,12 @@ export function SiteHeader() {
   return (
     <header className={styles.header} ref={header}>
       <div className={styles.inner}>
-        <a className={styles.brandLink} href="#start" aria-label="Hourlane – zur Startseite" onClick={() => setOpen(false)}>
+        <a
+          className={styles.brandLink}
+          href="#start"
+          aria-label="Hourlane – zur Startseite"
+          onClick={() => setOpen(false)}
+        >
           <Brand className={styles.brand} />
         </a>
         <button
@@ -50,11 +55,46 @@ export function SiteHeader() {
           onClick={() => setOpen(!open)}
         >
           <span>{open ? "Schließen" : "Menü"}</span>
-          <span className={`${styles.menuIcon} ${open ? styles.menuIconOpen : ""}`} aria-hidden="true"><span /><span /></span>
+          <span
+            className={`${styles.menuIcon} ${open ? styles.menuIconOpen : ""}`}
+            aria-hidden="true"
+          >
+            <span />
+            <span />
+          </span>
         </button>
-        <nav id="main-navigation" className={`${styles.navigation} ${open ? styles.navigationOpen : ""}`} aria-label="Hauptnavigation">
-          {links.map((link) => <a href={link.href} key={link.href} onClick={() => setOpen(false)}>{link.label}</a>)}
-          <a className={styles.contactLink} href="#kontakt" onClick={() => setOpen(false)}>Sprechen wir darüber <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 18 18 6M6 6h12v12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg></a>
+        <nav
+          id="main-navigation"
+          className={`${styles.navigation} ${open ? styles.navigationOpen : ""}`}
+          aria-label="Hauptnavigation"
+        >
+          {links.map((link) => (
+            <a href={link.href} key={link.href} onClick={() => setOpen(false)}>
+              {link.label}
+            </a>
+          ))}
+          <a
+            className={styles.contactLink}
+            href="#kontakt"
+            onClick={() => setOpen(false)}
+          >
+            Sprechen wir darüber{" "}
+            <svg
+              aria-hidden="true"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M6 18 18 6M6 6h12v12"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </a>
         </nav>
       </div>
     </header>
