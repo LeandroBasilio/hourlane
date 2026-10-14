@@ -1,0 +1,24 @@
+# Local credentials and personal configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Dependency and build output
+node_modules/
+.next/
+out/
+dist/
+coverage/
+test-results/
+playwright-report/
+*.tsbuildinfo
+
+# Local runtime data and logs
+.local/
+*.log
+*.sqlite
+*.sqlite3
+*.db
+.DS_Store
