@@ -1,6 +1,6 @@
 # Unternehmensgrundlage – Entscheidungsvorlage
 
-Stand: 14. Oktober 2026. **Vorschläge, noch nicht freigegeben.**
+Stand: 14. Oktober 2026. **Hourlane als Arbeitsname, SHK-Zielgruppe und Next.js/PostgreSQL sind vom Gründer freigegeben.** Preisannahmen bleiben zu validieren; externe Dienste und endgültige Markennutzung sind damit nicht freigegeben.
 
 ## Verifizierter Projektstand
 
@@ -9,7 +9,7 @@ Stand: 14. Oktober 2026. **Vorschläge, noch nicht freigegeben.**
 - Einzige vorhandene Projektdatei: `README.md`. Keine Anwendung, Abhängigkeiten, Tests oder Deploymentkonfiguration vorhanden.
 - Die anfänglich leere lokale Arbeitskopie auf dem uninitialisierten Branch `work` wurde per Fetch mit dem tatsächlichen Repository abgeglichen. Planungsbranch: `codex/foundation-plan`, basierend auf dem geprüften Commit.
 - Keine projektspezifische `AGENTS.md` gefunden. Die ursprüngliche README-Einleitung bleibt erhalten.
-- Die aktuelle Phase erstellt Strategie und Umsetzungsvorlage. Website, Datenspeicherung und Veröffentlichung sind noch nicht implementiert oder getestet.
+- Diese Bestandsaufnahme beschreibt den Ausgangspunkt. Inzwischen sind Website und lokale Datenspeicherung implementiert; aktueller Nachweis im [Prüfprotokoll](verification.md). Eine öffentliche Veröffentlichung steht aus.
 
 ## Empfohlene erste Zielgruppe
 
@@ -75,9 +75,9 @@ Nach erfolgreichem Pilot: Ablaufvorlagen und Betriebsdokumentation verbessern; e
 
 | Entscheidung | Empfehlung | Status |
 | --- | --- | --- |
-| Name und Gestaltung | Hourlane als gewählter Arbeitsname; helle Flächen, Waldgrün, präzise Prozessgrafiken; endgültige Nutzung nach Namensprüfung | Offen |
-| Zielgruppe und Positionierung | SHK-Betriebe 5–25 Beschäftigte; Büroentlastung; drei begrenzte Angebote, erster Pilot „Anfragen ordnen“ | Offen |
-| Technologie | Next.js, TypeScript, PostgreSQL; lokal entwickeln und testen; externe Anbieter separat freigeben | Offen |
+| Name und Gestaltung | Hourlane als gewählter Arbeitsname; helle Flächen, Waldgrün, präzise Prozessgrafiken; endgültige Nutzung nach Namensprüfung | Arbeitsrichtung freigegeben |
+| Zielgruppe und Positionierung | SHK-Betriebe 5–25 Beschäftigte; Büroentlastung; drei begrenzte Angebote, erster Pilot „Anfragen ordnen“ | Freigegeben; Nachfrageprüfung offen |
+| Technologie | Next.js, TypeScript, PostgreSQL; lokal entwickeln und testen; externe Anbieter separat freigeben | Lokale Umsetzung freigegeben |
 | Hosting und Kosten | Spätere Option Vercel Pro + Supabase Frankfurt; vor Buchung aktuelle Gesamtkosten und Vertragsbedingungen bestätigen | Offen |
 
 Die erste Freigabe autorisiert die lokale Umsetzung mit der gewählten Architektur. Sie richtet weder kostenpflichtige Konten ein noch ersetzt sie Namens- und Rechtsprüfung vor öffentlichem Start.

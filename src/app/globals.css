@@ -1,0 +1,27 @@
+:root {
+  --font-heading: "Manrope Variable", "Arial", sans-serif;
+  --font-body: "Inter Variable", "Arial", sans-serif;
+  --ink: #112d29;
+  --muted: #475d56;
+  --paper: #f5f6f0;
+  --green: #164a41;
+  --lime: #c8e86b;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 110px; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
+button, input, select, textarea { font: inherit; }
+button, a, input, textarea, select { -webkit-tap-highlight-color: transparent; }
+a { color: inherit; }
+button { cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+svg { flex-shrink: 0; }
+::selection { background: #c8e86b; color: #112d29; }
+:focus-visible { outline: 3px solid #164a41; outline-offset: 5px; box-shadow: 0 0 0 3px #fff; }
+.skip-link { position: fixed; z-index: 100; top: 12px; left: 16px; padding: 12px 20px; border-radius: 8px; background: #112d29; color: white; transform: translateY(-200%); }
+.skip-link:focus { transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}

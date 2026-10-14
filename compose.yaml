@@ -1,0 +1,19 @@
+name: hourlane-local
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: hourlane
+      POSTGRES_DB: hourlane
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set a local PostgreSQL password in .env}
+    ports:
+      - "127.0.0.1:54329:5432"
+    volumes:
+      - hourlane-postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U hourlane -d hourlane"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+volumes:
+  hourlane-postgres:

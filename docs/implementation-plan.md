@@ -1,6 +1,6 @@
 # Technischer Umsetzungsplan
 
-Stand: 14. Oktober 2026. Vorschlag vor Architekturfreigabe. **Noch keine Anwendung implementiert.**
+Stand: 14. Oktober 2026. Architektur vom Gründer freigegeben, Website und lokale Lead-Erfassung implementiert. Dieses Dokument hält den Plan und seine Abnahmekriterien fest. Tatsächliche Ergebnisse stehen im [Prüfprotokoll](verification.md); Start- und Betriebsanweisungen in [Entwicklung und Deployment](development-and-deployment.md).
 
 ## Architekturentscheidung
 
